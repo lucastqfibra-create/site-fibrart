@@ -1,5 +1,4 @@
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
@@ -8,37 +7,57 @@ import Products from './pages/Products';
 import About from './pages/About';
 import Contact from './pages/Contact';
 
-function ScrollToTop() {
-  const { pathname } = useLocation();
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-  return null;
-}
+export type PageType = 'home' | 'products' | 'about' | 'contact';
 
-function Layout() {
+function App() {
+  const [currentPage, setCurrentPage] = useState<PageType>('home');
+
+  // Sincroniza com a URL (hash) e define 'home' como padrão absoluto
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#/', '').replace('#', '').trim();
+      if (['home', 'products', 'about', 'contact'].includes(hash)) {
+        setCurrentPage(hash as PageType);
+      } else {
+        setCurrentPage('home');
+      }
+    };
+
+    handleHashChange();
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  const handleNavigate = (page: PageType) => {
+    setCurrentPage(page);
+    window.location.hash = `#/${page === 'home' ? '' : page}`;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const renderPage = () => {
+    switch (currentPage) {
+      case 'products':
+        return <Products />;
+      case 'about':
+        return <About />;
+      case 'contact':
+        return <Contact />;
+      case 'home':
+      default:
+        return <Home onNavigate={handleNavigate} />;
+    }
+  };
+
   return (
-    <div className="min-h-screen flex flex-col">
-      <ScrollToTop />
-      <Navbar />
-      <div className="flex-1">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/produtos" element={<Products />} />
-          <Route path="/quem-somos" element={<About />} />
-          <Route path="/contato" element={<Contact />} />
-        </Routes>
-      </div>
+    <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 font-sans antialiased">
+      <Navbar currentPage={currentPage} onNavigate={handleNavigate} />
+      <main className="flex-grow">
+        {renderPage()}
+      </main>
       <Footer />
       <WhatsAppButton />
     </div>
   );
 }
 
-export default function App() {
-  return (
-    <BrowserRouter>
-      <Layout />
-    </BrowserRouter>
-  );
-}
+export default App;
