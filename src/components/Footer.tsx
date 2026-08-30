@@ -1,4 +1,5 @@
 import React from 'react';
+import FibrartLogo from './FibrartLogo';
 import { Phone, Mail, MapPin, Instagram, Clock } from 'lucide-react';
 
 export const Footer: React.FC = () => {
@@ -6,9 +7,11 @@ export const Footer: React.FC = () => {
     <footer className="bg-slate-900 text-slate-300 pt-12 pb-8 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-          {/* Sobre a Empresa */}
+          {/* Logo Branca & Resumo */}
           <div>
-            <h3 className="text-white text-xl font-bold mb-4 tracking-wide">FIBRART</h3>
+            <div className="mb-4">
+              <FibrartLogo variant="white" className="h-10 sm:h-12 w-auto" />
+            </div>
             <p className="text-sm text-slate-400 leading-relaxed mb-4">
               Fabricação própria de tanques, pias e lavatórios em Marmofibra (mármore sintético revestido em fibra de vidro). Mais de 16 anos entregando resistência, acabamento de alto padrão e o melhor custo-benefício.
             </p>
