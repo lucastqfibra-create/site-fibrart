@@ -17,6 +17,9 @@ const DEFAULT_COLORS = [
   'Bege Bahia',
 ];
 
+// Obtém o caminho base do Vite ('/site-fibrart/' em produção ou '/' localmente)
+const BASE = import.meta.env.BASE_URL;
+
 export const products: Product[] = [
   // ==================== PIAS ====================
   {
@@ -33,7 +36,7 @@ export const products: Product[] = [
       'Pintura em Gel Coat de alto padrão',
       'Fácil higienização e manutenção',
     ],
-    image: '/products/pia-100-50.png',
+    image: `${BASE}products/pia-100-50.png`,
   },
   {
     id: 'pia-120-50',
@@ -49,7 +52,7 @@ export const products: Product[] = [
       'Acabamento brilhante e resistente a manchas',
       'Ideal para cozinhas residenciais',
     ],
-    image: '/products/pia-120-50.png',
+    image: `${BASE}products/pia-120-50.png`,
   },
   {
     id: 'pia-120-55-gb',
@@ -65,7 +68,7 @@ export const products: Product[] = [
       'Gel Coat exclusivo resistente ao calor e riscos leves',
       'Design moderno com bordas anti-respingo',
     ],
-    image: '/products/pia-120-55-gb.png',
+    image: `${BASE}products/pia-120-55-gb.png`,
   },
   {
     id: 'pia-140-55-gb',
@@ -81,7 +84,7 @@ export const products: Product[] = [
       'Resistência estrutural com manta de fibra',
       'Cores elegantes com visual de pedra natural',
     ],
-    image: '/products/pia-140-55-gb.png',
+    image: `${BASE}products/pia-140-55-gb.png`,
   },
   {
     id: 'pia-150-55-gb',
@@ -97,7 +100,7 @@ export const products: Product[] = [
       'Durabilidade comprovada e proteção antibacteriana',
       'Acabamento premium',
     ],
-    image: '/products/pia-150-55-gb.png',
+    image: `${BASE}products/pia-150-55-gb.png`,
   },
   {
     id: 'pia-120-55-inox',
@@ -113,7 +116,7 @@ export const products: Product[] = [
       'Design requintado para cozinhas planejadas',
       'Compatível com gabinetes de 1,20 m',
     ],
-    image: '/products/pia-120-55-inox.png',
+    image: `${BASE}products/pia-120-55-inox.png`,
   },
   {
     id: 'pia-140-55-inox',
@@ -129,41 +132,41 @@ export const products: Product[] = [
       'Alta durabilidade e resistência térmica',
       'Encaixe perfeito para gabinetes de 1,40 m',
     ],
-    image: '/products/pia-140-55-inox.png',
+    image: `${BASE}products/pia-140-55-inox.png`,
   },
 
   // ==================== TANQUES SIMPLES ====================
   {
     id: 'tanque-simples-54',
-    name: 'Tanque Simples 0,54 x 0,54 m',
+    name: 'Tanque Simples 0,54 x 0,54 m (Chumbar)',
     category: 'tanque',
     material: 'Marmofibra (Mármore Sintético com Fibra de Vidro)',
     dimensions: '0,54 x 0,54 m',
     colors: DEFAULT_COLORS,
-    description: 'Tanque compacto de 1 bojo para instalação embutida na parede. Perfeito para lavanderias e áreas de serviço com espaço reduzido.',
+    description: 'Tanque compacto de 1 bojo para instalação de chumbar na parede. Perfeito para lavanderias e áreas de serviço com espaço reduzido.',
     features: [
-      'Instalação embutida na parede',
+      'Instalação de chumbar na parede',
       'Friso ondulado eficiente para esfregar roupas',
       'Fundo reforçado com fibra de vidro',
       'Excelente resistência contra produtos de limpeza',
     ],
-    image: '/products/tanque-simples-54.png',
+    image: `${BASE}products/tanque-simples-54.png`,
   },
   {
     id: 'tanque-simples-60',
-    name: 'Tanque Simples 0,60 x 0,60 m (Gabinete / Embutir)',
+    name: 'Tanque Simples 0,60 x 0,60 m (Gabinete / Chumbar)',
     category: 'tanque',
     material: 'Marmofibra (Mármore Sintético com Fibra de Vidro)',
     dimensions: '0,60 x 0,60 m',
     colors: DEFAULT_COLORS,
-    description: 'Tanque de 1 bojo de 60x60 cm com capacidade reforçada. Pode ser instalado em gabinetes ou embutido.',
+    description: 'Tanque de 1 bojo de 60x60 cm com capacidade reforçada. Pode ser instalado em gabinetes ou chumbado.',
     features: [
-      'Versatilidade de instalação (Gabinete ou Embutir)',
+      'Versatilidade de instalação (Gabinete ou Chumbar)',
       'Bojo profundo e batedouro ergonômico',
       'Alta resistência ao atrito',
       'Pintura em Gel Coat impermeável',
     ],
-    image: '/products/tanque-simples-60.png',
+    image: `${BASE}products/tanque-simples-60.png`,
   },
   {
     id: 'tanque-bancada-85',
@@ -179,7 +182,7 @@ export const products: Product[] = [
       'Estrutura em fibra resistente a impactos',
       'Fácil escoamento de água',
     ],
-    image: '/products/tanque-bancada-85.png',
+    image: `${BASE}products/tanque-bancada-85.png`,
   },
   {
     id: 'tanque-bacia-71',
@@ -195,7 +198,7 @@ export const products: Product[] = [
       'Estrutura reforçada de alta densidade',
       'Acabamento higiênico e sem cantos vivos',
     ],
-    image: '/products/tanque-bacia-71.png',
+    image: `${BASE}products/tanque-bacia-71.png`,
   },
 
   // ==================== TANQUES DUPLOS ====================
@@ -213,7 +216,7 @@ export const products: Product[] = [
       'Tamanho compacto para lavanderias médias',
       'Revestimento impermeável e resistente',
     ],
-    image: '/products/tanque-duplo-100.png',
+    image: `${BASE}products/tanque-duplo-100.png`,
   },
   {
     id: 'tanque-duplo-110',
@@ -229,7 +232,7 @@ export const products: Product[] = [
       'Acabamento em Gel Coat de alto brilho',
       'Longa durabilidade',
     ],
-    image: '/products/tanque-duplo-110.png',
+    image: `${BASE}products/tanque-duplo-110.png`,
   },
   {
     id: 'tanque-duplo-120',
@@ -245,7 +248,7 @@ export const products: Product[] = [
       'Alta resistência a produtos químicos',
       'Superfície não porosa',
     ],
-    image: '/products/tanque-duplo-120.png',
+    image: `${BASE}products/tanque-duplo-120.png`,
   },
   {
     id: 'tanque-duplo-139',
@@ -261,7 +264,7 @@ export const products: Product[] = [
       'Ideal para sítios, comércios e grandes residências',
       'Batedouros amplos',
     ],
-    image: '/products/tanque-duplo-139.png',
+    image: `${BASE}products/tanque-duplo-139.png`,
   },
 
   // ==================== TANQUES TRIPLOS ====================
@@ -279,7 +282,7 @@ export const products: Product[] = [
       'Revestimento contínuo em fibra de vidro',
       'Fácil escoamento nos 3 pontos',
     ],
-    image: '/products/tanque-triplo-160.png',
+    image: `${BASE}products/tanque-triplo-160.png`,
   },
   {
     id: 'tanque-triplo-178',
@@ -295,7 +298,7 @@ export const products: Product[] = [
       'Estrutura de máxima robustez mecânica',
       'Padrão estético de alto nível',
     ],
-    image: '/products/tanque-triplo-178.png',
+    image: `${BASE}products/tanque-triplo-178.png`,
   },
 
   // ==================== LAVATÓRIOS ====================
@@ -313,7 +316,7 @@ export const products: Product[] = [
       'Acabamento higiênico e sem poros',
       'Encaixe perfeito para gabinetes de banheiro',
     ],
-    image: '/products/lavatorio-63-direito.png',
+    image: `${BASE}products/lavatorio-63-direito.png`,
   },
   {
     id: 'lavatorio-63-esquerdo',
@@ -329,7 +332,7 @@ export const products: Product[] = [
       'Acabamento higiênico e sem poros',
       'Encaixe perfeito para gabinetes de banheiro',
     ],
-    image: '/products/lavatorio-63-esquerdo.png',
+    image: `${BASE}products/lavatorio-63-esquerdo.png`,
   },
 ];
 
