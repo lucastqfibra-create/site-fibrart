@@ -94,7 +94,7 @@ export const Contact: React.FC = () => {
               </a>
             </div>
 
-            {/* Endereço */}
+            {/* Endereço da Fábrica */}
             <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
               <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center text-amber-600 mb-4">
                 <MapPin className="w-6 h-6" />
@@ -236,3 +236,13 @@ export const Contact: React.FC = () => {
                     Enviar Solicitação no WhatsApp
                   </button>
                 </form>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Contact;
