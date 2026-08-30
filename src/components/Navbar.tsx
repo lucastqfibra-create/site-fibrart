@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import FibrartLogo from './FibrartLogo';
-import { Menu, X, MessageCircle } from 'lucide-react';
+import { Menu, X, Store } from 'lucide-react';
 
 interface NavbarProps {
   currentPage: string;
@@ -12,13 +12,18 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
 
   const navItems: { id: 'home' | 'products' | 'about' | 'contact'; label: string }[] = [
     { id: 'home', label: 'Início' },
-    { id: 'products', label: 'Catálogo de Produtos' },
+    { id: 'products', label: 'Produtos' },
     { id: 'about', label: 'Quem Somos' },
-    { id: 'contact', label: 'Contato & Fábrica' },
+    { id: 'contact', label: 'Contato' },
   ];
 
   const handleNav = (id: 'home' | 'products' | 'about' | 'contact') => {
     onNavigate(id);
+    setMobileMenuOpen(false);
+  };
+
+  const handleDistributor = () => {
+    onNavigate('contact');
     setMobileMenuOpen(false);
   };
 
@@ -36,7 +41,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
           </button>
 
           {/* Menu Desktop */}
-          <nav className="hidden md:flex items-center space-x-1 lg:space-x-2">
+          <nav className="hidden md:flex items-center space-x-1 lg:space-x-3">
             {navItems.map((item) => (
               <button
                 key={item.id}
@@ -52,17 +57,15 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
             ))}
           </nav>
 
-          {/* Botão de WhatsApp no Topo */}
-          <div className="hidden lg:flex items-center gap-3">
-            <a
-              href="https://wa.me/5531973101116?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20direto%20de%20fábrica."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-sm transition"
+          {/* Botão Seja um Distribuidor Desktop */}
+          <div className="hidden md:flex items-center gap-3">
+            <button
+              onClick={handleDistributor}
+              className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-sm hover:shadow transition-all duration-200"
             >
-              <MessageCircle className="w-4 h-4" />
-              WhatsApp: (31) 97310-1116
-            </a>
+              <Store className="w-4 h-4" />
+              Seja um Distribuidor
+            </button>
           </div>
 
           {/* Botão Mobile */}
@@ -93,15 +96,13 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
             </button>
           ))}
           <div className="pt-3">
-            <a
-              href="https://wa.me/5531973101116?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20direto%20de%20fábrica."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-xl shadow-sm transition text-sm"
+            <button
+              onClick={handleDistributor}
+              className="w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl shadow-sm transition text-sm"
             >
-              <MessageCircle className="w-4 h-4" />
-              Solicitar Orçamento no WhatsApp
-            </a>
+              <Store className="w-4 h-4" />
+              Seja um Distribuidor
+            </button>
           </div>
         </div>
       )}
