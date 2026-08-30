@@ -60,7 +60,7 @@ export const Contact: React.FC = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center text-green-600 font-semibold hover:underline text-sm"
               >
-                (31) 97310-1116 →
+                (31) 97310-1116
               </a>
             </div>
 
@@ -75,7 +75,7 @@ export const Contact: React.FC = () => {
                 href="tel:3131522755"
                 className="inline-flex items-center text-blue-600 font-semibold hover:underline text-sm"
               >
-                (31) 3152-2755 →
+                (31) 3152-2755
               </a>
             </div>
 
@@ -99,7 +99,7 @@ export const Contact: React.FC = () => {
               <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center text-amber-600 mb-4">
                 <MapPin className="w-6 h-6" />
               </div>
-              <h3 className="text-lg font-semibold text-slate-900 mb-1">Unidade Fabril</h3>
+              <h3 className="text-lg font-semibold text-slate-900 mb-1">Endereço da fábrica</h3>
               <p className="text-sm text-slate-600">
                 Rodovia MG-424, nº 2.928 - Bairro Esmeraldas<br />
                 Sete Lagoas - MG | CEP: 35.702-098
