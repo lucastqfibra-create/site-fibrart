@@ -1,124 +1,99 @@
-import { Link } from 'react-router-dom';
-import { MapPin, Phone, Mail, Instagram, Facebook } from 'lucide-react';
-import FibrartLogo from './FibrartLogo';
+import React from 'react';
+import { Phone, Mail, MapPin, Instagram, Clock } from 'lucide-react';
 
-export default function Footer() {
+export const Footer: React.FC = () => {
   return (
-    <footer className="bg-charcoal-900 text-charcoal-300">
-      <div className="section-container py-16 md:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
-          {/* Brand */}
-          <div className="lg:col-span-1">
-            <Link to="/" className="inline-block mb-5">
-              <FibrartLogo variant="white" />
-            </Link>
-            <p className="text-sm text-charcoal-500 leading-relaxed max-w-xs mt-4">
-              Indústria de pias e tanques em marmofibra. Durabilidade,
-              qualidade e design diferenciado desde Sete Lagoas — MG.
+    <footer className="bg-slate-900 text-slate-300 pt-12 pb-8 border-t border-slate-800">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          {/* Sobre a Empresa */}
+          <div>
+            <h3 className="text-white text-xl font-bold mb-4 tracking-wide">FIBRART</h3>
+            <p className="text-sm text-slate-400 leading-relaxed mb-4">
+              Fabricação própria de tanques, pias e lavatórios em Marmofibra (mármore sintético revestido em fibra de vidro). Mais de 16 anos entregando resistência, acabamento de alto padrão e o melhor custo-benefício.
             </p>
+            <div className="flex space-x-3">
+              <a
+                href="https://instagram.com/fibrartmg"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 bg-slate-800 rounded-full flex items-center justify-center text-slate-300 hover:bg-pink-600 hover:text-white transition-colors"
+                aria-label="Instagram Fibrart"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
+            </div>
           </div>
 
-          {/* Navigation */}
+          {/* Categorias de Produtos */}
           <div>
-            <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-5">
-              Navegação
-            </h4>
-            <ul className="space-y-3">
-              {[
-                { to: '/', label: 'Home' },
-                { to: '/produtos', label: 'Catálogo de Produtos' },
-                { to: '/quem-somos', label: 'Quem Somos' },
-                { to: '/contato', label: 'Contato' },
-              ].map((link) => (
-                <li key={link.to}>
-                  <Link
-                    to={link.to}
-                    className="text-sm text-charcoal-400 hover:text-brand-400 transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
+            <h4 className="text-white font-semibold mb-4 text-base">Linhas de Produtos</h4>
+            <ul className="space-y-2 text-sm text-slate-400">
+              <li><a href="#/products" className="hover:text-white transition-colors">Pias em Marmofibra</a></li>
+              <li><a href="#/products" className="hover:text-white transition-colors">Pias com Bojo Inox</a></li>
+              <li><a href="#/products" className="hover:text-white transition-colors">Tanques Simples & Bancada</a></li>
+              <li><a href="#/products" className="hover:text-white transition-colors">Tanques Duplos & Triplos</a></li>
+              <li><a href="#/products" className="hover:text-white transition-colors">Lavatórios</a></li>
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Canais de Atendimento */}
           <div>
-            <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-5">
-              Contato
-            </h4>
-            <ul className="space-y-3">
-              <li className="flex items-start gap-3 text-sm text-charcoal-400">
-                <MapPin size={15} className="mt-0.5 shrink-0 text-charcoal-600" />
-                <span>
-                  Rodovia MG 424, nº 2.928<br />
-                  Sete Lagoas — MG, CEP 35.702-098
-                </span>
-              </li>
-              <li>
-                <a
-                  href="tel:+553131522755"
-                  className="flex items-start gap-3 text-sm text-charcoal-400 hover:text-brand-400 transition-colors"
-                >
-                  <Phone size={15} className="mt-0.5 shrink-0 text-charcoal-600" />
-                  (31) 3152.2755 / 97310.1117
+            <h4 className="text-white font-semibold mb-4 text-base">Atendimento</h4>
+            <ul className="space-y-3 text-sm text-slate-400">
+              <li className="flex items-center gap-3">
+                <Phone className="w-4 h-4 text-blue-400 shrink-0" />
+                <a href="tel:3131522755" className="hover:text-white transition-colors">
+                  (31) 3152-2755
                 </a>
               </li>
-              <li>
+              <li className="flex items-center gap-3">
+                <Phone className="w-4 h-4 text-green-400 shrink-0" />
                 <a
-                  href="mailto:vendas@fibrart.com.br"
-                  className="flex items-start gap-3 text-sm text-charcoal-400 hover:text-brand-400 transition-colors"
+                  href="https://wa.me/5531973101116"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
                 >
-                  <Mail size={15} className="mt-0.5 shrink-0 text-charcoal-600" />
+                  (31) 97310-1116 (WhatsApp)
+                </a>
+              </li>
+              <li className="flex items-center gap-3">
+                <Mail className="w-4 h-4 text-blue-400 shrink-0" />
+                <a href="mailto:vendas@fibrart.com.br" className="hover:text-white transition-colors">
                   vendas@fibrart.com.br
                 </a>
               </li>
+              <li className="flex items-start gap-3">
+                <Clock className="w-4 h-4 text-blue-400 shrink-0 mt-1" />
+                <span>Segunda a Sexta: 07:30 às 17:00</span>
+              </li>
             </ul>
           </div>
 
-          {/* Social */}
+          {/* Endereço da Fábrica */}
           <div>
-            <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-5">
-              Redes Sociais
-            </h4>
-            <div className="flex gap-3 mb-6">
-              <a
-                href="#"
-                aria-label="Instagram FIBRART"
-                className="w-10 h-10 rounded-lg bg-charcoal-800 flex items-center justify-center text-charcoal-400 hover:bg-brand-500 hover:text-white transition-all duration-200"
-              >
-                <Instagram size={18} />
-              </a>
-              <a
-                href="#"
-                aria-label="Facebook FIBRART"
-                className="w-10 h-10 rounded-lg bg-charcoal-800 flex items-center justify-center text-charcoal-400 hover:bg-brand-500 hover:text-white transition-all duration-200"
-              >
-                <Facebook size={18} />
-              </a>
+            <h4 className="text-white font-semibold mb-4 text-base">Fábrica & Showroom</h4>
+            <div className="flex items-start gap-3 text-sm text-slate-400">
+              <MapPin className="w-5 h-5 text-red-400 shrink-0 mt-1" />
+              <div>
+                <p className="font-medium text-slate-200">Fibrart Indústria e Comércio Ltda</p>
+                <p>Rodovia MG-424, nº 2.928</p>
+                <p>Bairro Esmeraldas</p>
+                <p>Sete Lagoas - MG</p>
+                <p>CEP: 35.702-098</p>
+              </div>
             </div>
-            <a
-              href="http://www.fibrart.com.br"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs text-charcoal-600 hover:text-brand-400 transition-colors"
-            >
-              www.fibrart.com.br
-            </a>
           </div>
         </div>
-      </div>
 
-      <div className="border-t border-charcoal-800">
-        <div className="section-container py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-charcoal-600">
-            &copy; {new Date().getFullYear()} FIBRART Indústria e Comércio LTDA. Todos os direitos reservados.
-          </p>
-          <p className="text-xs text-charcoal-700">
-            Marmofibra — Sete Lagoas, MG
-          </p>
+        <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500 gap-4">
+          <p>© {new Date().getFullYear()} Fibrart Tanques e Pias. Todos os direitos reservados.</p>
+          <p>CNPJ: 12.695.625/0001-02 • Sete Lagoas / MG</p>
         </div>
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;
