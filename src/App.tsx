@@ -12,12 +12,11 @@ export type PageType = 'home' | 'products' | 'about' | 'contact';
 function App() {
   const [currentPage, setCurrentPage] = useState<PageType>('home');
 
-  // Sincroniza com a URL (hash) e define 'home' como padrão absoluto
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#/', '').replace('#', '').trim();
-      if (['home', 'products', 'about', 'contact'].includes(hash)) {
-        setCurrentPage(hash as PageType);
+      if (hash === 'products' || hash === 'about' || hash === 'contact') {
+        setCurrentPage(hash);
       } else {
         setCurrentPage('home');
       }
