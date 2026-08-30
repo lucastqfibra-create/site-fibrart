@@ -1,116 +1,112 @@
-import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import React, { useState } from 'react';
 import FibrartLogo from './FibrartLogo';
+import { Menu, X, MessageCircle } from 'lucide-react';
 
-const navLinks = [
-  { to: '/', label: 'Home' },
-  { to: '/produtos', label: 'Produtos' },
-  { to: '/quem-somos', label: 'Quem Somos' },
-  { to: '/contato', label: 'Contato' },
-];
+interface NavbarProps {
+  currentPage: string;
+  onNavigate: (page: 'home' | 'products' | 'about' | 'contact') => void;
+}
 
-export default function Navbar() {
-  const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const location = useLocation();
+export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  const navItems: { id: 'home' | 'products' | 'about' | 'contact'; label: string }[] = [
+    { id: 'home', label: 'Início' },
+    { id: 'products', label: 'Catálogo de Produtos' },
+    { id: 'about', label: 'Quem Somos' },
+    { id: 'contact', label: 'Contato & Fábrica' },
+  ];
 
-  useEffect(() => {
-    setOpen(false);
-  }, [location]);
+  const handleNav = (id: 'home' | 'products' | 'about' | 'contact') => {
+    onNavigate(id);
+    setMobileMenuOpen(false);
+  };
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-white/96 backdrop-blur-md shadow-lg shadow-black/8'
-          : 'bg-transparent'
-      }`}
-    >
-      <nav className="section-container flex items-center justify-between h-16 md:h-20">
-        {/* Logo */}
-        <Link to="/" className="block">
-          <FibrartLogo />
-        </Link>
+    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-20">
+          {/* Logo da Fibrart */}
+          <button
+            onClick={() => handleNav('home')}
+            className="flex items-center gap-3 focus:outline-none"
+            aria-label="Fibrart Início"
+          >
+            <FibrartLogo className="h-10 sm:h-12 w-auto" />
+          </button>
 
-        {/* Desktop Links */}
-        <ul className="hidden md:flex items-center gap-1">
-          {navLinks.map((link) => {
-            const active = location.pathname === link.to;
-            return (
-              <li key={link.to}>
-                <Link
-                  to={link.to}
-                  className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 ${
-                    active
-                      ? scrolled
-                        ? 'text-brand-600 bg-brand-50'
-                        : 'text-white bg-white/15'
-                      : scrolled
-                      ? 'text-charcoal-600 hover:text-brand-600 hover:bg-brand-50'
-                      : 'text-white/80 hover:text-white hover:bg-white/10'
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            );
-          })}
-          <li className="ml-3">
-            <Link to="/contato" className="btn-primary !px-5 !py-2.5 !text-sm">
-              Seja Distribuidor
-            </Link>
-          </li>
-        </ul>
-
-        {/* Mobile Toggle */}
-        <button
-          onClick={() => setOpen(!open)}
-          className={`md:hidden p-2 rounded-lg transition-colors ${
-            scrolled
-              ? 'text-charcoal-700 hover:bg-charcoal-100'
-              : 'text-white hover:bg-white/10'
-          }`}
-          aria-label={open ? 'Fechar menu' : 'Abrir menu'}
-        >
-          {open ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </nav>
-
-      {/* Mobile Menu */}
-      <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-          open ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-        }`}
-      >
-        <div className="bg-white border-t border-charcoal-100 shadow-xl px-4 pb-4 pt-2">
-          {navLinks.map((link) => {
-            const active = location.pathname === link.to;
-            return (
-              <Link
-                key={link.to}
-                to={link.to}
-                className={`block py-3 px-4 rounded-lg text-base font-semibold transition-colors ${
-                  active
-                    ? 'text-brand-600 bg-brand-50'
-                    : 'text-charcoal-700 hover:bg-charcoal-50'
+          {/* Menu Desktop */}
+          <nav className="hidden md:flex items-center space-x-1 lg:space-x-2">
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => handleNav(item.id)}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  currentPage === item.id
+                    ? 'text-blue-600 bg-blue-50 font-semibold'
+                    : 'text-slate-700 hover:text-blue-600 hover:bg-slate-50'
                 }`}
               >
-                {link.label}
-              </Link>
-            );
-          })}
-          <Link to="/contato" className="btn-primary w-full mt-3 !text-base">
-            Seja Distribuidor
-          </Link>
+                {item.label}
+              </button>
+            ))}
+          </nav>
+
+          {/* Botão de WhatsApp no Topo */}
+          <div className="hidden lg:flex items-center gap-3">
+            <a
+              href="https://wa.me/5531973101116?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20direto%20de%20fábrica."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-sm transition"
+            >
+              <MessageCircle className="w-4 h-4" />
+              WhatsApp: (31) 97310-1116
+            </a>
+          </div>
+
+          {/* Botão Mobile */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 focus:outline-none"
+            aria-label="Abrir Menu"
+          >
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
         </div>
       </div>
+
+      {/* Menu Mobile */}
+      {mobileMenuOpen && (
+        <div className="md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-2">
+          {navItems.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => handleNav(item.id)}
+              className={`block w-full text-left px-4 py-3 rounded-xl text-base font-medium transition ${
+                currentPage === item.id
+                  ? 'text-blue-600 bg-blue-50 font-semibold'
+                  : 'text-slate-700 hover:bg-slate-50'
+              }`}
+            >
+              {item.label}
+            </button>
+          ))}
+          <div className="pt-3">
+            <a
+              href="https://wa.me/5531973101116?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20direto%20de%20fábrica."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-xl shadow-sm transition text-sm"
+            >
+              <MessageCircle className="w-4 h-4" />
+              Solicitar Orçamento no WhatsApp
+            </a>
+          </div>
+        </div>
+      )}
     </header>
   );
-}
+};
+
+export default Navbar;
