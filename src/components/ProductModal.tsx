@@ -11,36 +11,33 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
   const whatsappMessage = encodeURIComponent(
     `Olá! Tenho interesse no produto *${product.name}* (Medidas: ${product.dimensions}). Poderiam me enviar valores e prazos de entrega?`
   );
-  const whatsappUrl = `https://wa.me/5531973101116?text=${whatsappMessage}`;
+  const whatsappUrl = `https://wa.me/553131522755?text=${whatsappMessage}`;
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4">
-      <div className="relative bg-white rounded-2xl sm:rounded-3xl max-w-3xl w-full max-h-[92vh] overflow-y-auto shadow-2xl border border-slate-200">
-        {/* Botão Fechar */}
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+      <div className="relative bg-white rounded-3xl max-w-3xl w-full overflow-hidden shadow-2xl border border-slate-200">
         <button
           onClick={onClose}
-          className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10 w-9 h-9 sm:w-10 sm:h-10 bg-white/90 hover:bg-slate-100 rounded-full flex items-center justify-center text-slate-700 shadow-md transition"
+          className="absolute top-4 right-4 z-10 w-10 h-10 bg-white/90 hover:bg-slate-100 rounded-full flex items-center justify-center text-slate-700 shadow-md transition"
           aria-label="Fechar"
         >
           <X className="w-5 h-5" />
         </button>
 
-        {/* Imagem */}
-        <div className="relative w-full bg-slate-100 flex items-center justify-center p-4 sm:p-6 border-b border-slate-200 max-h-[35vh] sm:max-h-[40vh]">
+        <div className="relative aspect-[16/9] w-full bg-slate-100 flex items-center justify-center p-6 border-b border-slate-200">
           <img
             src={product.image}
             alt={product.name}
-            className="w-full h-full object-contain max-h-[30vh] sm:max-h-[35vh]"
+            className="w-full h-full object-contain max-h-[380px]"
           />
         </div>
 
-        {/* Informações do Produto */}
-        <div className="p-5 sm:p-8 space-y-5">
+        <div className="p-6 sm:p-8 space-y-6">
           <div>
             <span className="inline-block px-3 py-1 bg-blue-50 text-blue-700 text-xs font-bold rounded-full mb-2 uppercase tracking-wide">
               {product.material}
             </span>
-            <h2 className="text-xl sm:text-3xl font-bold text-slate-900">
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">
               {product.name}
             </h2>
             <div className="flex items-center gap-2 text-sm text-slate-600 font-medium mt-1">
@@ -53,7 +50,6 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
             {product.description}
           </p>
 
-          {/* Cores Disponíveis */}
           <div>
             <h4 className="text-sm font-bold text-slate-900 mb-3 flex items-center gap-2">
               <Sparkles className="w-4 h-4 text-amber-500" />
@@ -71,7 +67,6 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
             </div>
           </div>
 
-          {/* Diferenciais */}
           <div>
             <h4 className="text-sm font-bold text-slate-900 mb-3">Diferenciais e Vantagens:</h4>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm text-slate-600">
@@ -84,7 +79,6 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
             </ul>
           </div>
 
-          {/* Botões de Ação */}
           <div className="pt-4 border-t border-slate-200 flex flex-col sm:flex-row gap-3">
             <a
               href={whatsappUrl}
@@ -93,7 +87,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
               className="flex-1 inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-6 rounded-xl shadow transition"
             >
               <MessageCircle className="w-5 h-5" />
-              Solicitar Orçamento no WhatsApp
+              Solicitar Orçamento no WhatsApp: (31) 3152-2755
             </a>
             <button
               onClick={onClose}
