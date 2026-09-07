@@ -2,7 +2,7 @@ import React from 'react';
 import { MessageCircle } from 'lucide-react';
 
 export const WhatsAppButton: React.FC = () => {
-  const phoneNumber = '5531973101116';
+  const phoneNumber = '553131522755';
   const message = encodeURIComponent(
     'Olá! Gostaria de solicitar um orçamento e saber mais sobre os tanques e pias da Fibrart.'
   );
@@ -18,7 +18,7 @@ export const WhatsAppButton: React.FC = () => {
     >
       <MessageCircle className="w-6 h-6 fill-current" />
       <span className="hidden md:inline font-medium text-sm">
-        Orçamento via WhatsApp
+        Orçamento: (31) 3152-2755
       </span>
     </a>
   );
