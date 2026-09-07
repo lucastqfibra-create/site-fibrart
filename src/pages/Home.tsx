@@ -1,11 +1,9 @@
 import React from 'react';
 import { 
   ShieldCheck, 
-  Award, 
   Sparkles, 
   MessageCircle, 
   ArrowRight, 
-  CheckCircle2, 
   Factory, 
   Truck 
 } from 'lucide-react';
@@ -17,11 +15,10 @@ interface HomeProps {
 
 export default function Home({ onNavigate }: HomeProps) {
   const base = import.meta.env.BASE_URL;
-  const whatsappUrl = 'https://wa.me/5531973101116?text=' + encodeURIComponent(
+  const whatsappUrl = 'https://wa.me/553131522755?text=' + encodeURIComponent(
     'Olá! Vim pelo site da Fibrart e gostaria de solicitar um orçamento dos produtos direto de fábrica.'
   );
 
-  // Seleciona os 3 primeiros produtos como destaque
   const featuredProducts = products.slice(0, 3);
 
   const handleNavigate = (page: string) => {
@@ -38,7 +35,6 @@ export default function Home({ onNavigate }: HomeProps) {
       <section className="relative bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 text-white py-20 lg:py-28 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Texto Principal */}
             <div className="space-y-6">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-blue-500/20 border border-blue-400/30 rounded-full text-blue-300 text-xs font-semibold uppercase tracking-wider">
                 <Sparkles className="w-4 h-4 text-blue-400" />
@@ -53,7 +49,6 @@ export default function Home({ onNavigate }: HomeProps) {
                 A união da beleza do mármore com a resistência da fibra de vidro e acabamento exclusivo em Gel Coat. Direto da fábrica em Sete Lagoas - MG.
               </p>
 
-              {/* Botões de Chamada */}
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <button
                   onClick={() => handleNavigate('products')}
@@ -69,11 +64,10 @@ export default function Home({ onNavigate }: HomeProps) {
                   className="inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-semibold px-8 py-4 rounded-xl shadow-lg transition duration-200"
                 >
                   <MessageCircle className="w-5 h-5" />
-                  Orçamento no WhatsApp
+                  WhatsApp: (31) 3152-2755
                 </a>
               </div>
 
-              {/* Indicadores */}
               <div className="grid grid-cols-3 gap-6 pt-8 border-t border-slate-800">
                 <div>
                   <p className="text-2xl sm:text-3xl font-extrabold text-blue-400">+16</p>
@@ -90,7 +84,6 @@ export default function Home({ onNavigate }: HomeProps) {
               </div>
             </div>
 
-            {/* Imagem em Destaque no Hero */}
             <div className="relative">
               <div className="relative aspect-[16/9] w-full bg-slate-800/80 rounded-3xl overflow-hidden border border-slate-700/50 shadow-2xl p-4 flex items-center justify-center">
                 <img
@@ -105,7 +98,7 @@ export default function Home({ onNavigate }: HomeProps) {
         </div>
       </section>
 
-      {/* DIFERENCIAIS DA MARMOFIBRA */}
+      {/* DIFERENCIAIS */}
       <section className="py-16 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12">
@@ -182,7 +175,6 @@ export default function Home({ onNavigate }: HomeProps) {
                 onClick={() => handleNavigate('products')}
                 className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer group flex flex-col"
               >
-                {/* Imagem Horizontal 16:9 */}
                 <div className="relative aspect-[16/9] w-full bg-slate-100 overflow-hidden flex items-center justify-center p-3 border-b border-slate-100">
                   <img
                     src={product.image}
@@ -216,7 +208,7 @@ export default function Home({ onNavigate }: HomeProps) {
         </div>
       </section>
 
-      {/* BANNER DE CHAMADA FINAL */}
+      {/* CHAMADA FINAL */}
       <section className="bg-slate-900 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
@@ -232,7 +224,7 @@ export default function Home({ onNavigate }: HomeProps) {
             className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition"
           >
             <MessageCircle className="w-5 h-5" />
-            Falar com Vendas no WhatsApp: (31) 97310-1116
+            Falar com Vendas no WhatsApp: (31) 3152-2755
           </a>
         </div>
       </section>
