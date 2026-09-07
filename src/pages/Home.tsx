@@ -64,7 +64,7 @@ export default function Home({ onNavigate }: HomeProps) {
                   className="inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-semibold px-8 py-4 rounded-xl shadow-lg transition duration-200"
                 >
                   <MessageCircle className="w-5 h-5" />
-                  WhatsApp: (31) 3152-2755
+                  WhatsApp
                 </a>
               </div>
 
