@@ -66,7 +66,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
               className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-sm transition"
             >
               <MessageCircle className="w-4 h-4" />
-              (31) 3152-2755
+              WhatsApp
             </a>
             <button
               onClick={handleDistributor}
