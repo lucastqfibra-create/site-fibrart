@@ -24,7 +24,7 @@ export const Contact: React.FC = () => {
       `*Tipo de Negócio:* ${formData.businessType}\n` +
       `*Mensagem:* ${formData.message}`
     );
-    window.open(`https://wa.me/5531973101116?text=${text}`, '_blank');
+    window.open(`https://wa.me/553131522755?text=${text}`, '_blank');
     setSubmitted(true);
   };
 
@@ -55,12 +55,12 @@ export const Contact: React.FC = () => {
               <h3 className="text-lg font-semibold text-slate-900 mb-1">WhatsApp Comercial</h3>
               <p className="text-sm text-slate-500 mb-4">Atendimento direto da fábrica para orçamentos e catálogos.</p>
               <a
-                href="https://wa.me/5531973101116"
+                href="https://wa.me/553131522755"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center text-green-600 font-semibold hover:underline text-sm"
               >
-                (31) 97310-1116
+                (31) 3152-2755 →
               </a>
             </div>
 
@@ -75,7 +75,7 @@ export const Contact: React.FC = () => {
                 href="tel:3131522755"
                 className="inline-flex items-center text-blue-600 font-semibold hover:underline text-sm"
               >
-                (31) 3152-2755
+                (31) 3152-2755 →
               </a>
             </div>
 
@@ -94,12 +94,12 @@ export const Contact: React.FC = () => {
               </a>
             </div>
 
-            {/* Endereço da Fábrica */}
+            {/* Endereço */}
             <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
               <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center text-amber-600 mb-4">
                 <MapPin className="w-6 h-6" />
               </div>
-              <h3 className="text-lg font-semibold text-slate-900 mb-1">Endereço da fábrica</h3>
+              <h3 className="text-lg font-semibold text-slate-900 mb-1">Unidade Fabril</h3>
               <p className="text-sm text-slate-600">
                 Rodovia MG-424, nº 2.928 - Bairro Esmeraldas<br />
                 Sete Lagoas - MG | CEP: 35.702-098
@@ -111,7 +111,7 @@ export const Contact: React.FC = () => {
             </div>
           </div>
 
-          {/* Formulário Comercial / Seja um Distribuidor */}
+          {/* Formulário Comercial */}
           <div className="lg:col-span-2">
             <div className="bg-white p-8 sm:p-10 rounded-2xl shadow-sm border border-slate-200">
               <div className="flex items-center gap-3 mb-2">
@@ -129,7 +129,7 @@ export const Contact: React.FC = () => {
                   <CheckCircle2 className="w-12 h-12 text-green-600 mx-auto mb-3" />
                   <h3 className="text-lg font-bold text-green-900">Solicitação Enviada!</h3>
                   <p className="text-sm text-green-700 mt-1">
-                    Abrimos o WhatsApp com todos os seus dados para atendimento imediato.
+                    Abrimos o WhatsApp (31) 3152-2755 com todos os seus dados para atendimento imediato.
                   </p>
                   <button
                     onClick={() => setSubmitted(false)}
@@ -179,7 +179,7 @@ export const Contact: React.FC = () => {
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         className="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition"
-                        placeholder="(31) 99999-9999"
+                        placeholder="(31) 3152-2755"
                       />
                     </div>
                     <div>
@@ -233,7 +233,7 @@ export const Contact: React.FC = () => {
                     className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-xl shadow transition"
                   >
                     <Send className="w-4 h-4" />
-                    Enviar Solicitação no WhatsApp
+                    Enviar Solicitação no WhatsApp: (31) 3152-2755
                   </button>
                 </form>
               )}
