@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import FibrartLogo from './FibrartLogo';
-import { Menu, X, Store } from 'lucide-react';
+import { Menu, X, Store, MessageCircle } from 'lucide-react';
 
 interface NavbarProps {
   currentPage: string;
@@ -57,8 +57,17 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
             ))}
           </nav>
 
-          {/* Botão Seja um Distribuidor Desktop */}
-          <div className="hidden md:flex items-center gap-3">
+          {/* Ações Desktop */}
+          <div className="hidden lg:flex items-center gap-3">
+            <a
+              href="https://wa.me/553131522755?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20direto%20de%20fábrica."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-sm transition"
+            >
+              <MessageCircle className="w-4 h-4" />
+              (31) 3152-2755
+            </a>
             <button
               onClick={handleDistributor}
               className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-sm hover:shadow transition-all duration-200"
@@ -95,7 +104,16 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
               {item.label}
             </button>
           ))}
-          <div className="pt-3">
+          <div className="pt-3 space-y-2">
+            <a
+              href="https://wa.me/553131522755?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20direto%20de%20fábrica."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-xl shadow-sm transition text-sm"
+            >
+              <MessageCircle className="w-4 h-4" />
+              WhatsApp: (31) 3152-2755
+            </a>
             <button
               onClick={handleDistributor}
               className="w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl shadow-sm transition text-sm"
