@@ -1,6 +1,6 @@
 import React from 'react';
 import FibrartLogo from './FibrartLogo';
-import { Phone, Mail, MapPin, Instagram, Clock } from 'lucide-react';
+import { Phone, Mail, MapPin, Instagram, Clock, MessageSquare } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
@@ -40,25 +40,25 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Canais de Atendimento */}
+          {/* Atendimento com (31) 3152-2755 */}
           <div>
             <h4 className="text-white font-semibold mb-4 text-base">Atendimento</h4>
             <ul className="space-y-3 text-sm text-slate-400">
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-blue-400 shrink-0" />
                 <a href="tel:3131522755" className="hover:text-white transition-colors">
-                  (31) 3152-2755
+                  (31) 3152-2755 (Telefone)
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-green-400 shrink-0" />
+                <MessageSquare className="w-4 h-4 text-green-400 shrink-0" />
                 <a
-                  href="https://wa.me/5531973101116"
+                  href="https://wa.me/553131522755"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors"
                 >
-                  (31) 97310-1116 (WhatsApp)
+                  (31) 3152-2755 (WhatsApp)
                 </a>
               </li>
               <li className="flex items-center gap-3">
@@ -74,7 +74,7 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Endereço da Fábrica */}
+          {/* Fábrica */}
           <div>
             <h4 className="text-white font-semibold mb-4 text-base">Fábrica & Showroom</h4>
             <div className="flex items-start gap-3 text-sm text-slate-400">
