@@ -18,7 +18,7 @@ export const WhatsAppButton: React.FC = () => {
     >
       <MessageCircle className="w-6 h-6 fill-current" />
       <span className="hidden md:inline font-medium text-sm">
-        Orçamento: (31) 3152-2755
+        Orçamento
       </span>
     </a>
   );
